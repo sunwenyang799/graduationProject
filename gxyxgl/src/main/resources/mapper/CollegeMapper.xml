@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssm.mapper.CollegeMapper">
+	<resultMap type="com.ssm.model.College" id="college">
+		<result property="xybh" column="c_xybh" />
+		<result property="xymc" column="c_xymc" />
+	</resultMap>
+
+	<sql id="column">
+		c_xybh,c_xymc
+	</sql>
+
+	<select id="selectAll" resultMap="college">
+		select
+		<include refid="column"></include>
+		from t_college
+	</select>
+
+	<select id="selectById" resultMap="college">
+		select * from t_college where
+		id = #{c_xybh}
+	</select>
+
+	<insert id="addCollege" parameterType="com.ssm.model.College">
+		insert into t_college
+		values(#{c_xybh},#{c_xymc})
+	</insert>
+
+	<update id=updateCollege parameterType="com.ssm.model.College">
+		update t_college set
+		<if test="xymc!=null">username = #{username}</if>
+		<where>
+			c_xybh = #{xybh}
+		</where>
+	</update>
+
+	<delete id="deleteCollege">
+		delete from t_college where c_xybh = #{xybh}
+	</delete>
+</mapper>

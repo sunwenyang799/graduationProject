@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssm.mapper.ClassesMapper">
+	<resultMap type="com.ssm.model.Classes" id="classes">
+		<result property="bjbh" column="c_bjbh" />
+		<result property="bjmc" column="c_bjmc" />
+		<result property="zybh" column="c_zybh" />
+		<result property="xybh" column="c_xybh" />
+	</resultMap>
+	<sql id="column">
+		c_bjbh,c_bjmc,c_zybh,c_xybh
+	</sql>
+	<select id="selectAll" resultMap="classes">
+		select
+		<include refid="column">
+		</include>
+		from t_class
+	</select>
+
+	<select id="selectById" resultMap="classes">
+		select * from t_class where
+		c_bjbh
+		= #{bjbh}
+	</select>
+
+	<insert id="addClasses" parameterType="com.ssm.model.Classes">
+		insert into t_class
+		values(#{bjbh},#{bjmc},#{zybh},#{xybh})
+	</insert>
+
+	<update id="updateClasses" parameterType="com.ssm.model.Classes">
+		update t_class set
+		<if test="bjmc!=null">c_bjmc = #{c_bjmc}</if>
+		<if test="zybh!=null">c_zybh = #{zybh}</if>
+		<if test="xybh!=null">c_xybh = #{xybh}</if>
+		<where>
+			c_bjbh = #{bjbh}
+		</where>
+	</update>
+
+	<delete id="deleteClasses">
+		delete from t_class where c_bjbh = #{bjbh}
+	</delete>
+</mapper>

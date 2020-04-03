@@ -13,8 +13,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import com.ssm.model.TFy;
-import com.ssm.model.User;
+import com.ssm.model.Student;
 
 /**
  * TestJDBC
@@ -46,12 +45,12 @@ public class TestJDBC {
 //            System.out.println(userList.get(i));
 //        }
         
-      //查询全部用户
-        System.out.println("查询全部用户");
-        List<TFy> userList = sqlSession.selectList("com.ssm.dao.TFYDao.getAllFY");
-        for (int i = 0; i < userList.size(); i++) {
-            System.out.println(userList.get(i));
-        }
+//      //查询全部用户
+//        System.out.println("查询全部用户");
+//        List<TFy> userList = sqlSession.selectList("com.ssm.dao.TFYDao.getAllFY");
+//        for (int i = 0; i < userList.size(); i++) {
+//            System.out.println(userList.get(i));
+//        }
         
 //        //       根据用户id查询用户
 //        System.out.println("根据用户id查询用户");

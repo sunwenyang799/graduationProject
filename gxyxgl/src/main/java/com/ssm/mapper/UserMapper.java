@@ -3,10 +3,11 @@
  * All rights reserved. THUNISOFT PROPRIETARY/CONFIDENTIAL. Use is subject to
  * license terms.
  */
-package com.ssm.dao;
+package com.ssm.mapper;
 
 import java.util.List;
 
+import com.ssm.model.Student;
 import com.ssm.model.User;
 
 /**
@@ -15,7 +16,7 @@ import com.ssm.model.User;
  * @version 1.0
  *
  */
-public interface UserDao {
+public interface UserMapper {
     //        查询全部用户
     public List<User> selectAll();
 

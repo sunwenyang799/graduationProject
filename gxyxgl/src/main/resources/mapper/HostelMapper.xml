@@ -31,10 +31,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="updateUser" parameterType="com.ssm.model.User">
 	update tb_user set 
 	<if test="username!=null">username = #{username}</if>
-	<if test="password">password = #{password}</if>
-	<if test="name">name = #{name}</if>
-	<if test="age">age = #{age}</if>
-	<if test="sex">sex = #{sex}</if>
+	<if test="password!=null">password = #{password}</if>
+	<if test="name!=null">name = #{name}</if>
+	<if test="age!=null">age = #{age}</if>
+	<if test="sex!null">sex = #{sex}</if>
 	<if test="birthday!=null">birthday = #{birthday}</if>
 	<where>
 	id = #{id}
